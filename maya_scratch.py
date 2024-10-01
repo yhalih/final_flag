@@ -5,18 +5,18 @@
 # import initial
 #
 #
-# def empty_matrix_board():
-#     matrix_board = []
-#     free_list = []
-#
-#     for j in range(50):
-#         free_list.append("free")
-#
-#     for i in range(25):
-#         matrix_board.append(free_list)
-#
-#     return matrix_board
-#
+def empty_matrix_board():
+    matrix_board = []
+    free_list = []
+
+    for j in range(50):
+        free_list.append("free")
+
+    for i in range(25):
+        matrix_board.append(free_list)
+
+    return matrix_board
+
 #
 # def insert_mines_in_matrix_board():
 #     board = empty_matrix_board()
