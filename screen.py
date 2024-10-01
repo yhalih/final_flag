@@ -34,5 +34,4 @@ def display_gridscreen(soldier_location, mine_list):
                 running = False
         create_mine_screen(mine_screen, mine_list, soldier_location)
         display.flip()
-        time.sleep(1)
-    pygame.quit()
+    time.sleep(1)

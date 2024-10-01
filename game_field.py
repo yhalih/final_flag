@@ -1,6 +1,9 @@
 from pygame import *
+import pygame
+import sys
 import time
 
+import back_matrix
 import screen
 import soldier
 import result
@@ -30,39 +33,48 @@ def can_game_continue(soldier_location, mine_locations, flag_locations):
 
 
 def find_new_location(soldier_location, board, mine_list):
-    pressed = key.get_pressed()
+    init()
     new_location = [soldier_location[0], soldier_location[1]]
 
     # Showing the secret screen
-    if pressed[K_RETURN]:
-        screen.display_gridscreen(soldier_location, mine_list)
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
 
-    elif pressed[K_LEFT]:
-        new_location[0] -= 1
-    elif pressed[K_RIGHT]:
-        new_location[0] += 1
-    elif pressed[K_UP]:
-        new_location[1] += 1
-    elif pressed[K_DOWN]:
-        new_location[1] -= 1
+        if event.type == KEYDOWN:
+            pressed = key.get_pressed()
+
+            if pressed[K_RETURN]:
+                screen.display_gridscreen(soldier_location, mine_list)
+
+            elif pressed[K_DOWN]:
+                new_location[1] += 1
+            elif pressed[K_LEFT]:
+                new_location[0] -= 1
+            elif pressed[K_RIGHT]:
+                new_location[0] += 1
+            elif pressed[K_UP]:
+                new_location[1] -= 1
+
 
     return tuple(new_location)
 
 
 def move_to_new_location(new_location, board):
     if 0 <= new_location[0] < ROWS_IN_BOARD and 0 <= new_location[1] < COLS_IN_BOARD:
-        initial.placement(board, 'soldier', new_location)
-        # Rect.move(new_location[0], new_location[1])
+        initial.placement(board, SOLDIER_STR, new_location)
     display.update()
 
 
-def move_soldier(mine_list, flag_locations, board):
+def move_soldier(mine_list, flag_locations, board, matrix):
     soldier_location = (0, 0)
     can_continue = True
 
     # make a move and then check if game ended
     while can_continue:
         soldier_location = find_new_location(soldier_location, board, mine_list)
+        back_matrix.move_soldier_in_matrix(matrix, soldier_location)
         move_to_new_location(soldier_location, board)
         can_continue = can_game_continue(soldier_location, mine_list, flag_locations)
 

@@ -1,4 +1,11 @@
+
+
+
+
+
 SIZE = 25
+
+
 
 EMPTY_CELL = 'free'
 

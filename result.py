@@ -22,6 +22,6 @@ def end_print(win, soldier_location, board):
     if win:
         print("You won!")
     else:
-        initial.placement(board, 'explosion.png', soldier_location)
-        initial.placement(board, 'injury', soldier_location)
+        # initial.placement(board, 'explosion.png', soldier_location)
+        # initial.placement(board, 'injury', soldier_location)
         print("You lost!")

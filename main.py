@@ -6,6 +6,7 @@ import back_matrix
 import game_field
 import sys
 
+
 pygame.init()
 g_screen = display.set_mode((PIXEL_COLS, PIXEL_ROWS))
 
@@ -14,6 +15,8 @@ while running:
     for event in pygame.event.get():
         if event.type == QUIT:
             running = False
+            pygame.quit()
+            sys.exit()
 
     screen.create_grass_screen(g_screen)
     display.flip()
@@ -21,8 +24,9 @@ while running:
     matrix = []
     mine_list = back_matrix.create_whole_matrix(matrix)
 
-    game_field.move_soldier(mine_list, FLAG_LOCATION_LIST, g_screen)
+    game_field.move_soldier(mine_list, FLAG_LOCATION_LIST, g_screen, matrix)
 
     display.flip()
 
 pygame.quit()
+sys.exit()
