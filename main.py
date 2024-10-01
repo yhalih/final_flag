@@ -1,17 +1,22 @@
 from pygame import *
+from consts import *
+import pygame
 import screen
 import sys
 
-init()
+pygame.init()
+g_screen= display.set_mode((PIXEL_COLS, PIXEL_ROWS))
+
 running=True
 while running:
-    screen.grass_screen()
-    display.flip()
-    for event in event.get():
+    for event in pygame.event.get():
         if event.type == QUIT:
             running = False
-sys.exit()
-quit()
+    screen.grass_screen(g_screen)
+    display.flip()
+
+
+pygame.quit()
 
 
 
