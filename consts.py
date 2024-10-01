@@ -17,7 +17,8 @@ ITEM_PROPORTION = {
     'flag': (4, 3)
 }
 
-
 FLAG = (COLS_IN_BOARD - ITEM_PROPORTION['flag'][0], ROWS_IN_BOARD - ITEM_PROPORTION['flag'][1])
 
 GREEN = (64, 200, 45)
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)

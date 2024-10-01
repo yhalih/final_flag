@@ -35,7 +35,7 @@ def random_bush_bomb(repeted_item, board, bomb_bush_num=BUSH_BOMB_NUM):
 
     return places_list
 
-
+#
 def drawGrid(board):
     blocksize = SIZE #Set the size of the grid block
     for x in range(PIXEL_COLS, blocksize):
