@@ -22,12 +22,12 @@ def random_tup_in_board():
 
 def random_bush(green_screen , bomb_bush_num=BUSH_BOMB_NUM):
     places_list = []
-    flag_and_start = [soldier.soldier_legs(SOLDIER_START), FLAG_LOCATION]
     while len(places_list) < bomb_bush_num:
         rand_tup = random_tup_in_board()
-        if rand_tup not in places_list and rand_tup not in flag_and_start:
-            places_list.append(rand_tup)
-            placement(green_screen, 'grass', rand_tup)
+        while rand_tup in places_list:
+            rand_tup = random_tup_in_board()
+        places_list.append(rand_tup)
+        placement(green_screen, 'grass', rand_tup)
 
     return green_screen
 

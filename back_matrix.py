@@ -1,10 +1,9 @@
 import initial
 import soldier
+from consts import *
 
 
-def empty_matrix():
-    matrix = []
-
+def empty_matrix(matrix):
     for i in range(25):
         free_list = []
         for j in range(50):
@@ -14,9 +13,7 @@ def empty_matrix():
 
 
 def insert_flag_soldier_matrix(matrix):
-    flag_locations = [(22, 46), (22, 47), (22, 48), (22, 49),
-                      (23, 46), (23, 47), (23, 48), (23, 49),
-                      (24, 46), (24, 47), (24, 48), (24, 49), ]
+    flag_locations = FLAG_LOCATION_LIST
     for i in range(len(flag_locations)):
         location = flag_locations[i]
         row = location[0]
@@ -42,12 +39,10 @@ def insert_mines_in_matrix_board(matrix):
         matrix[mine_location[0]][mine_location[1]] = "mine"
         mine_list.append(mine_location)
 
-    return mine_list #important for grid screen
+    return mine_list  # important for grid screen
 
 
-def create_whole_matrix():
-    whole_matrix = empty_matrix()
-    insert_mines_in_matrix_board(whole_matrix)
-    return whole_matrix
-
-
+def create_whole_matrix(matrix):
+    whole_matrix = empty_matrix(matrix)
+    mine_list = insert_mines_in_matrix_board(whole_matrix)
+    return mine_list

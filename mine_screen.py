@@ -4,17 +4,16 @@ import pygame
 import screen
 
 
-def
+def display_gridscreen(soldier_location):
     pygame.init()
-    mine_screen= display.set_mode((PIXEL_COLS, PIXEL_ROWS))
+    mine_screen = display.set_mode((PIXEL_COLS, PIXEL_ROWS))
 
-    running=True
+    running = True
     while running:
         for event in pygame.event.get():
             if event.type == QUIT:
                 running = False
-        screen.mine_screen(mine_screen)
+        screen.create_mine_screen(mine_screen)
         display.flip()
-
 
     pygame.quit()

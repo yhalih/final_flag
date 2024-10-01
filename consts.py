@@ -19,8 +19,12 @@ ITEM_PROPORTION = {
     'flag': (4, 3)
 }
 
-FLAG_LOCATION = (COLS_IN_BOARD - ITEM_PROPORTION['flag'][0], ROWS_IN_BOARD - ITEM_PROPORTION['flag'][1])
+FLAG_LOCATION_CORNER = (COLS_IN_BOARD - ITEM_PROPORTION['flag'][0], ROWS_IN_BOARD - ITEM_PROPORTION['flag'][1])
+FLAG_LOCATION_LIST= [(22, 46), (22, 47), (22, 48), (22, 49),
+                      (23, 46), (23, 47), (23, 48), (23, 49),
+                      (24, 46), (24, 47), (24, 48), (24, 49), ]
 
 GREEN = (64, 200, 45)
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
+

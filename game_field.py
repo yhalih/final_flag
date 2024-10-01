@@ -1,5 +1,7 @@
 from pygame import *
 import time
+
+import screen
 import soldier
 import result
 import initial
@@ -27,14 +29,14 @@ def can_game_continue(soldier_location, mine_locations, flag_locations):
     return can_continue
 
 
-def find_new_location(soldier_location, board):
+def find_new_location(soldier_location, board, mine_list):
     pressed = key.get_pressed()
     new_location = [soldier_location[0], soldier_location[1]]
     #
     # Showing the secret screen
     if pressed[K_RETURN]:
-        # show secret screen
-        time.sleep(1)
+        screen.display_gridscreen(soldier_location, mine_list)
+
 
     elif pressed[K_LEFT]:
         new_location[0] -= 1
@@ -48,20 +50,20 @@ def find_new_location(soldier_location, board):
     # move to new location if in range
     if 0 <= new_location[0] < ROWS_IN_BOARD and 0 <= new_location[1] < COLS_IN_BOARD:
         soldier_location = new_location
-        initial.placement(board, 'soldier.png', soldier_location)
+        initial.placement(board, 'soldier', soldier_location)
 
     display.update()
 
     return tuple(soldier_location)
 
 
-def move_soldier(soldier_location, mine_locations, flag_locations, board):
+def move_soldier(soldier_location, mine_list, flag_locations, board):
     can_continue = True
 
     # make a move and then check if game ended
     while can_continue:
-        soldier_location = find_new_location(soldier_location, board)
-        can_continue = can_game_continue(soldier_location, mine_locations, flag_locations)
+        soldier_location = find_new_location(soldier_location, board, mine_list)
+        can_continue = can_game_continue(soldier_location, mine_list, flag_locations)
 
     # Once game has ended
-    result.end(soldier_location, mine_locations)
+    result.end(soldier_location, mine_list)
