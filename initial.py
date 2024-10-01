@@ -5,7 +5,6 @@ import soldier
 import proportion
 
 
-
 def placement(board, item_, wanted_place):
     pic_item = image.load(f'bin png/{item_}.png').convert()
     pic_item = transform.scale(pic_item, proportion.pixelize(ITEM_PROPORTION[item_]))
@@ -20,7 +19,7 @@ def random_tup_in_board():
     return rand_tup
 
 
-def random_bush(green_screen , bomb_bush_num=BUSH_BOMB_NUM):
+def random_bush(green_screen, bomb_bush_num=BUSH_BOMB_NUM):
     places_list = []
     while len(places_list) < bomb_bush_num:
         rand_tup = random_tup_in_board()
@@ -32,12 +31,10 @@ def random_bush(green_screen , bomb_bush_num=BUSH_BOMB_NUM):
     return green_screen
 
 
-
-
 #
-def drawGrid(board):
-    blocksize = SIZE  # Set the size of the grid block
-    for x in range(PIXEL_COLS, blocksize):
-        for y in range(0, PIXEL_ROWS, blocksize):
-            rect = Rect(x, y, blocksize, blocksize)
-            draw.rect(board, WHITE, rect, 1)
+def drawgrid(mine_screen):
+    size = SIZE
+    for x in range(0, PIXEL_COLS, size):
+        for y in range(0, PIXEL_ROWS, size):
+            rect = Rect(x, y, size, size)
+            draw.rect(mine_screen, GREEN, rect, 1)
