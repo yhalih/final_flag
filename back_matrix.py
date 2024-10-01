@@ -46,3 +46,18 @@ def create_whole_matrix(matrix):
     whole_matrix = empty_matrix(matrix)
     mine_list = insert_mines_in_matrix_board(whole_matrix)
     return mine_list
+
+
+def move_soldier_in_matrix(matrix, new_location):
+    for row in matrix:
+        for item in row:
+            if item == 'body' or item == 'legs':
+                item = 'free'
+
+    soldier_legs = soldier.soldier_legs(new_location)
+    soldier_body = soldier.soldier_body(new_location)
+
+    for location in soldier_body:
+        matrix[location[0]][location[1]] = "body"
+    for location in soldier_legs:
+        matrix[location[0]][location[1]] = "legs"
