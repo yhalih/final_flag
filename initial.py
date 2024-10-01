@@ -11,11 +11,10 @@ def creating_empty_board():
 
 
 def placement(board, item_, wanted_place):
-    pic_item = image.load(f'C:\\Users\\jbt\\Desktop\\python\\group_project_flag_game\\bin\\{item_}.png').convert()
+    pic_item = image.load(f'bin png/{item_}.png').convert()
     pic_item = transform.scale(pic_item, proportion.pixelize(ITEM_PROPORTION[item_]))
     board.blit(pic_item, proportion.pixelize(wanted_place))
-    #display.flip()
-
+    # display.flip()
 
 
 def random_tup_in_board():
@@ -35,3 +34,11 @@ def random_bush_bomb(repeted_item, board, bomb_bush_num=BUSH_BOMB_NUM):
             placement(board, repeted_item, rand_tup)
 
     return places_list
+
+
+def drawGrid(board):
+    blockSize = SIZE #Set the size of the grid block
+    for x in range(PIXEL_COLS, blockSize):
+        for y in range(0, PIXEL_ROWS, blockSize):
+            rect = Rect(x, y, blockSize, blockSize)
+            draw.rect(board,  , rect, 1)
