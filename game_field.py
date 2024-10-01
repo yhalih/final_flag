@@ -45,15 +45,15 @@ def find_new_location(soldier_location, board, mine_list):
         new_location[1] += 1
     elif pressed[K_DOWN]:
         new_location[1] -= 1
-    #
-    # # move to new location if in range
-    # if 0 <= new_location[0] < ROWS_IN_BOARD and 0 <= new_location[1] < COLS_IN_BOARD:
-    #     soldier_location = new_location
-    #     initial.placement(board, 'soldier', soldier_location)
-    #
-    # display.update()
 
     return tuple(new_location)
+
+
+def move_to_new_location(new_location, board):
+    if 0 <= new_location[0] < ROWS_IN_BOARD and 0 <= new_location[1] < COLS_IN_BOARD:
+        initial.placement(board, 'soldier', new_location)
+        # Rect.move(new_location[0], new_location[1])
+    display.update()
 
 
 def move_soldier(mine_list, flag_locations, board):
@@ -63,7 +63,7 @@ def move_soldier(mine_list, flag_locations, board):
     # make a move and then check if game ended
     while can_continue:
         soldier_location = find_new_location(soldier_location, board, mine_list)
-        #function that will move it
+        move_to_new_location(soldier_location, board)
         can_continue = can_game_continue(soldier_location, mine_list, flag_locations)
 
     # Once game has ended
