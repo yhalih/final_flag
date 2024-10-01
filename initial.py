@@ -37,8 +37,8 @@ def random_bush_bomb(repeted_item, board, bomb_bush_num=BUSH_BOMB_NUM):
 
 
 def drawGrid(board):
-    blockSize = SIZE #Set the size of the grid block
-    for x in range(PIXEL_COLS, blockSize):
-        for y in range(0, PIXEL_ROWS, blockSize):
-            rect = Rect(x, y, blockSize, blockSize)
-            draw.rect(board,  , rect, 1)
+    blocksize = SIZE #Set the size of the grid block
+    for x in range(PIXEL_COLS, blocksize):
+        for y in range(0, PIXEL_ROWS, blocksize):
+            rect = Rect(x, y, blocksize, blocksize)
+            draw.rect(board, WHITE , rect, 1)
