@@ -21,8 +21,7 @@ while running:
     matrix = []
     mine_list = back_matrix.create_whole_matrix(matrix)
 
-    game_field.move_soldier(SOLDIER_START, mine_list, FLAG_LOCATION_LIST, g_screen)
-
+    game_field.move_soldier(mine_list, FLAG_LOCATION_LIST, g_screen)
     display.flip()
 
 pygame.quit()
