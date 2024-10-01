@@ -33,10 +33,10 @@ def insert_mines_in_matrix_board(matrix):
     insert_flag_soldier_matrix(matrix)
     mine_list = []
     for i in range(20):
-        mine_location = initial.random_tup_in_board()
-        while matrix[mine_location[0]][mine_location[1]] != "free":
-            mine_location = initial.random_tup_in_board()
-        matrix[mine_location[0]][mine_location[1]] = "mine"
+        mine_location = initial.random_tup_in_board(MINE_STR)
+        while matrix[mine_location[1]][mine_location[0]] != "free":
+            mine_location = initial.random_tup_in_board(MINE_STR)
+        matrix[mine_location[1]][mine_location[0]] = "mine"
         mine_list.append(mine_location)
 
     return mine_list  # important for grid screen

@@ -9,7 +9,7 @@ import initial
 
 def create_grass_screen(screen):
     screen.fill(GREEN)
-    initial.random_bush(screen)
+    initial.placing_bushes_list(screen)
     initial.placement(screen, SOLDIER_STR, SOLDIER_START)
     initial.placement(screen, FLAG_STR, FLAG_LOCATION_CORNER)
 
