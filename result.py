@@ -25,3 +25,5 @@ def end_print(win, soldier_location, board):
         # initial.placement(board, 'explosion.png', soldier_location)
         # initial.placement(board, 'injury', soldier_location)
         print("You lost!")
+
+#

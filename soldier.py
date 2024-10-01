@@ -26,3 +26,5 @@ def soldier_body(location):
             list.append((new_x_index, y_index))
         y_index += 1
     return list
+
+#

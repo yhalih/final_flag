@@ -64,7 +64,7 @@ def find_new_location(soldier_location, board, mine_list):
 def move_to_new_location(new_location, board):
     if 0 <= new_location[0] < ROWS_IN_BOARD and 0 <= new_location[1] < COLS_IN_BOARD:
         initial.placement(board, SOLDIER_STR, new_location)
-        rect_soldier= ()
+
     display.update()
 
 

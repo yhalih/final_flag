@@ -42,3 +42,5 @@ def drawgrid(mine_screen):
         for y in range(0, PIXEL_ROWS, size):
             rect = Rect(x, y, size, size)
             draw.rect(mine_screen, GREEN, rect, 1)
+
+#

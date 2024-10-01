@@ -6,7 +6,7 @@ import back_matrix
 import game_field
 import sys
 
-
+#
 pygame.init()
 g_screen = display.set_mode((PIXEL_COLS, PIXEL_ROWS))
 

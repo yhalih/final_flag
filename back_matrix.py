@@ -61,3 +61,5 @@ def move_soldier_in_matrix(matrix, new_location):
         matrix[location[0]][location[1]] = "body"
     for location in soldier_legs:
         matrix[location[0]][location[1]] = "legs"
+
+#

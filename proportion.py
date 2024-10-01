@@ -6,3 +6,5 @@ def pixelize(item_):
     y_item = item_[1]
     pix_item= (x_item * SIZE, y_item * SIZE)
     return pix_item
+
+#

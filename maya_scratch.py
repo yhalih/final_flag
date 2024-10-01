@@ -34,3 +34,5 @@ def move_to_new_location(new_location, board):
         initial.placement(board, 'soldier', soldier_location)
 
     display.update()
+
+#

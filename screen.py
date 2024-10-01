@@ -35,3 +35,5 @@ def display_gridscreen(soldier_location, mine_list):
         create_mine_screen(mine_screen, mine_list, soldier_location)
         display.flip()
     time.sleep(1)
+
+#
